@@ -54,7 +54,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Bem vindo de volta!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="index.html">
                                         <div class="form-group">
                                           <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Insira seu e-mail.." onblur="validaEmail(this)">
                                           <span id="emailError" style="color:red;display:none; margin-top: 20px;">Por favor, insira um endereço de email válido.</span>
@@ -70,22 +70,13 @@
                                           <form id="formulario" onsubmit="return verificarCheckbox()">
                                           <div class="custom-control custom-checkbox small">
                                             <input type="checkbox" class="custom-control-input" id="leiLGPD" required>
-                                            <label class="custom-control-label" for="leiLGPD">Aceitar termos LGPD</label>
+                                            <label class="custom-control-label" for="leiLGPD">Aceitar termos <a href="">LGPD</a></label>
                                           </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block botao-acessar ">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block botao-acessar"> 
                                          Acessar
                                       </button> 
                                       </form>
-                                      <script>
-                                        function verificarCheckbox() {
-                                            if (!document.getElementById('leiLGPD').checked) {
-                                                alert('Você precisa aceitar os termos LGPD para continuar.');
-                                                return false;
-                                            }
-                                            return true;
-                                        }
-                                    </script>
                                                                               
                                       <script>
                                         function validaEmail(campo) {
