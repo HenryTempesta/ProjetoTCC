@@ -8,4 +8,3 @@ Seja bem vindo ao meu sistema que produzi para meu TCC, a principio foi utlizado
  3- validação de email, senha(requisitos minimos)
  4- lista de tarefas
  5- Marcar atendimento 
-  

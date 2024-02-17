@@ -55,10 +55,10 @@
                                         <h1 class="h4 text-gray-900 mb-4">Bem vindo de volta!</h1>
                                     </div>
                                     <form class="user" action="index.html">
-                                        <div class="form-group">
-                                          <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Insira seu e-mail.." onblur="validaEmail(this)">
-                                          <span id="emailError" style="color:red;display:none; margin-top: 20px;">Por favor, insira um endereço de email válido.</span>
-                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Insira seu Usuário..." onblur="validaEmail(this)">
+                                            
+                                          </div>
                                         <div class="form-group">
                                           <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha...">
                                         </div>
@@ -70,7 +70,10 @@
                                           <form id="formulario" onsubmit="return verificarCheckbox()">
                                           <div class="custom-control custom-checkbox small">
                                             <input type="checkbox" class="custom-control-input" id="leiLGPD" required>
-                                            <label class="custom-control-label" for="leiLGPD">Aceitar termos <a href="">LGPD</a></label>
+                                            <label class="custom-control-label" for="leiLGPD">
+                                              Aceitar termos
+                                              <a href="https://www.gov.br/esporte/pt-br/acesso-a-informacao/lgpd#:~:text=A%20Lei%20Geral%20de%20Proteção,da%20personalidade%20de%20cada%20indivíduo." target="_blank">LGPD</a>
+                                            </label>
                                           </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block botao-acessar"> 
