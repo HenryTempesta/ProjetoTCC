@@ -105,10 +105,6 @@ button:hover {
   to {opacity: 1;}
 }
 
-
-
-
-    
     </style>
 
 </head>
@@ -142,16 +138,14 @@ button:hover {
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-           
-            
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                    aria-expanded="false" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Cadastros</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Páginas de Logins:</h6>
                         <a class="collapse-item" href="login.html">Login</a>
@@ -159,14 +153,13 @@ button:hover {
                         <a class="collapse-item" href="forgot-password.html">Esqueci a senha</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Páginas de cadastro:</h6>
-
                         <a class="collapse-item" href="cadastroServicos.html">Cadastro de Serviços  </a>
                         <a class="collapse-item" href="cadastroTeste.html">Cadastro Fornecedor</a> 
+                        
                     </div>
                 </div>
-            </li>
-
-            
+                
+            </li>   
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
@@ -216,22 +209,41 @@ button:hover {
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
+                    Topbar Search -->
                     <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
+                    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                    onsubmit="event.preventDefault(); searchFunction();"
+                >
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            class="form-control bg-light border-0 small"
+                            placeholder="Pesquisar..."
+                            aria-label="Search"
+                            aria-describedby="basic-addon2"
+                            name="searchInput"
+                        />
+                        <div class="input-group-append">
+                            <button class="btn btn-primary btn-sm" style="margin-top: 10px;">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
                         </div>
-                    </form>
-
+                    </div>
+                </form>
+                
+                <script>
+                    function searchFunction() {
+                        const searchInput = document.querySelector('input[name="searchInput"]');
+                        const searchTerm = searchInput.value;
+                
+                        // Realize a pesquisa aqui usando o valor de "searchTerm"
+                        console.log('Pesquisando:', searchTerm);
+                    }
+                </script>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                        
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
@@ -256,6 +268,8 @@ button:hover {
                                 </form>
                             </div>
                         </li>
+
+                        
 
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
@@ -320,19 +334,33 @@ button:hover {
                                 <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-question-circle medium fa-1,5x"></i>
-                                
-                                    
                                 </a>
+
+                                
                            
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Guilbert Lemos</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              <span class="mr-2 d-none d-lg-inline text-gray-600 small">Guilbert Lemos</span>
+                              <img class="img-profile rounded-circle" src="img/undraw_profile.svg" alt="Profile Image">
                             </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                              <a class="dropdown-item" href="#">Updates (42)</a>
+                              <a class="dropdown-item" href="#">Messages (42)</a>
+                              <a class="dropdown-item" href="#">Tasks (42)</a>
+                              <a class="dropdown-item" href="#">Comments (42)</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Settings & Profile</a>
+                              <a class="dropdown-item" href="#">Payments (42)</a>
+                              <a class="dropdown-item" href="#">Projects (42)</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Lock Account</a>
+                              <a class="dropdown-item" href="#">Logout</a>
+                            </div>
+                          </li>
+
+
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -359,7 +387,7 @@ button:hover {
                     </ul>
 
                 </nav>
-                <!-- End of Topbar -->
+                <!-- End of Topbar
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -446,7 +474,8 @@ button:hover {
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Atendimentos</div>
+                                                <a href="agenda.html">Atendimentos</a>
+                                            </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                         </div>
                                         <div class="col-auto">
@@ -488,27 +517,48 @@ button:hover {
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    class="card-header py-2 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-2 font-weight-bold text-primary">
                                         <a href="agenda.html">Atendimentos</a>
                                       </h6> 
-                                    <button id="abrirModal">Marcar Atendimentos</button>
+                                      <button id="abrirModal" style="padding: 5px 15px; font-size: 14px;">Marcar Atendimento</button>
                                     <div class="dropdown no-arrow">
 
                                         <div id="modalCadastro" class="modal">
-                                            <div class="modal-conteudo">
+                                            <div class="modal-conteudo" style="position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%);">
                                               <span class="fecharModal">&times;</span>
                                               <form>
                                                 <label for="nomeCliente">Nome do Cliente:</label>
                                                 <input type="text" id="nomeCliente" name="nomeCliente" required><br><br>
                                           
                                                 <label for="tipoServico">Tipo de Serviço:</label>
-                                                <input type="text" id="tipoServico" name="tipoServico" required><br><br>
-                                          
+                                                <select id="tipoServico" name="tipoServico" required style="display: inline-block; width: 100%; padding: 6px 12px; font-size: 14px; line-height: 2; color: #555; background-color: #fff; background-image: none; border: 1px solid #ccc; border-radius: 4px; height: 50px;" onchange="atualizarValor()">
+                                                    <option value="">Selecione uma opção</option>
+                                                    <option value="servico1">Corte</option>
+                                                    <option value="servico2">Barba</option>
+                                                    <option value="servico3">Corte e barba</option>
+                                                    <option value="servico4">Descolorir corte (pintar)</option>
+                                                </select><br><br>
+
                                                 <form>
                                                     <label for="valor">Valor:</label>
-                                                    <input type="text" id="valor" name="valor" required><br><br>
+                                                    <input type="text" id="valor" readonly   name="valor" required ><br><br>
                                                 </form>
+
+                                                <script>
+                                                    function atualizarValor() {
+                                                        var selectedValue = document.getElementById("tipoServico").value;
+                                                        if (selectedValue == "servico1") {
+                                                            document.getElementById("valor").value = "R$ 30,00";
+                                                        } else if (selectedValue == "servico2") {
+                                                            document.getElementById("valor").value = "R$ 40,00";
+                                                        } else if (selectedValue == "servico3") {
+                                                            document.getElementById("valor").value = "R$ 60,00";
+                                                        } else if (selectedValue == "servico4") {
+                                                            document.getElementById("valor").value = "R$ 100,00";
+                                                        }
+                                                    }
+                                                </script>
 
                                                 <script>
                                                     // Função para formatar o valor em reais
@@ -537,7 +587,13 @@ button:hover {
                                                 <label for="dataHora">Dia e Hora:</label>
                                                 <input type="datetime-local" id="dataHora" name="dataHora" required><br><br>
                                           
-                                                <button type="submit">Marcar!</button> 
+                                                <button type="submit" style="margin-left: 135px; padding: 10px 30px; font-size: 18px;" onclick="marcarAtendimento()">Marcar!</button>
+
+                                                <!-- <script>
+                                                    function marcarAtendimento() {
+                                                        alert("Atendimento marcado com sucesso!");
+                                                    }
+                                                </script> -->
                                               </form>
                                               
                                                 
@@ -609,10 +665,11 @@ button:hover {
                                                     <div class="card px-3">
                                                         <div class="card-body">
                                                             <h4 class="card-title">lista de tarefas</h4>
-                                                            <div class="add-items d-flex"> <input type="text" class="form-control todo-list-input" placeholder="O que você precisa fazer hoje?"> <button class="add btn btn-primary font-weight-bold todo-list-add-btn">Adicionar</button> </div>
+                                                            <div class="add-items d-flex"> <input type="text" class="form-control todo-list-input" placeholder="O que você precisa fazer hoje?"> 
+                                                                <button class="add btn btn-primary font-weight-bold todo-list-add-btn">Adicionar</button> </div>
                                                             <div class="list-wrapper">
                                                                 <ul class="d-flex flex-column-reverse todo-list">
-                                                                    <li>
+                                                                    
                                                     </div>
                                                 </div>
                                             </div>

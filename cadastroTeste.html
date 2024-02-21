@@ -498,7 +498,7 @@
 
                 <div class="container">
 
-                    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+                    <form class="well form-horizontal" action="cadastro/cadastroFornecedor.php" method="post"  id="contact_form">
                 <fieldset>
                 
                 <!-- Form Name -->
@@ -511,7 +511,7 @@
                   <div class="col-md-12 inputGroupContainer">
                   <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input  name="first_name" placeholder="Primeiro Nome" class="form-control"  type="text">
+                  <input  placeholder="Primeiro Nome" class="form-control"  type="text" name="forn_nome">
                     </div>
                   </div>
                 </div>
@@ -523,7 +523,7 @@
                     <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input name="last_name" placeholder="Segundo nome" class="form-control"  type="text">
+                  <input  placeholder="Segundo nome" class="form-control"  type="text" name="forn_sobrenome">
                     </div>
                   </div>
                 </div>
@@ -534,7 +534,7 @@
                     <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                  <input name="email" placeholder="Endereço de e-mail" class="form-control"  type="email">
+                  <input  placeholder="Endereço de e-mail" class="form-control"  type="email" name="forn_email">
                     </div>
                   </div>
                 </div>
@@ -547,7 +547,7 @@
                     <div class="col-md-12 inputGroupContainer">
                       <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input name="Celular" placeholder="(xx)xxxxx-xxxx" class="form-control" type="text" id="telefone" maxlength="15">
+                        <input  placeholder="(xx)xxxxx-xxxx" class="form-control" type="text" id="telefone" maxlength="15" name="forn_celular">
                       </div>
                     </div>
                   </div>
@@ -594,7 +594,7 @@
                     <div class="col-md-12 inputGroupContainer">
                       <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="zip" placeholder="Cep" class="form-control" type="text" id="cep"  onblur="buscarEndereco()" onkeypress="aplicarMascaraCep(event)" maxlength="9">
+                        <input  placeholder="Cep" class="form-control" type="text" id="cep"  onblur="buscarEndereco()" onkeypress="aplicarMascaraCep(event)" maxlength="9" name="forn_cep">
                     </div>
                     </div>
                   </div>
@@ -634,7 +634,7 @@
                         <div class="col-md-12 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                    <input name="address" placeholder="Endereço" class="form-control" type="text" id="rua" readonly>
+                    <input  placeholder="Endereço" class="form-control" type="text" id="rua" readonly name="forn_rua">
                         </div>
                     </div>
                     </div>
@@ -644,7 +644,7 @@
                         <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                    <input name="address" placeholder="Número" class="form-control" type="text" id="numero">
+                    <input  placeholder="Número" class="form-control" type="text" id="numero" name="forn_endereco_numero">
                         </div>
                     </div>
                     </div>
@@ -654,7 +654,7 @@
                             <div class="col-md-12 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="address" placeholder="Endereço" class="form-control" type="text" id="bairro" readonly>
+                        <input  placeholder="Endereço" class="form-control" type="text" id="bairro" readonly name="forn_bairro">
                             </div>
                         </div>
                         </div>
@@ -669,7 +669,7 @@
                         <div class="col-md-12 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                    <input name="city" placeholder="Cidade" class="form-control"  type="text" id="cidade" readonly>
+                    <input placeholder="Cidade" class="form-control"  type="text" id="cidade" readonly name="forn_cidade">
                         </div>
                     </div>
                     </div>
@@ -679,7 +679,7 @@
                             <div class="col-md-12 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="city" placeholder="Estado" class="form-control"  type="text" id="estado" readonly>
+                        <input  placeholder="Estado" class="form-control"  type="text" id="estado" readonly name="forn_estado">
                             </div>
                         </div>
                         </div>
@@ -740,7 +740,7 @@
                     <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                            <textarea class="form-control" name="comment" placeholder="Descrição"></textarea>
+                            <textarea class="form-control" name="forn_descricao" placeholder="Descrição"></textarea>
                   </div>
                   </div>
                 </div>

@@ -1,34 +1,15 @@
 <?php
+    require_once('../conexao/banco.php');
 
-    //Conexão com o Banco
-    $servername = "localhost"; // ou o IP do servidor de banco de dados
-    $username = "root"; // seu usuário de banco de dados
-    $password = ""; // sua senha do banco de dados
-    $dbname = "sistematcc"; // nome do seu banco de dados
-
-    // Criando a conexão
-    $conn = new mysqli($servername, $username, $password, $dbname);    
-
-    //Pegando as informções do form
+    //Pegando as informações do form
     $nome = $_REQUEST['log_user'];
     $email = $_REQUEST['log_email'];
     $senha = $_REQUEST['log_senha'];
+
     
-
-    $contadorID = 3;
-
-
-    // Corrigir aspas na string SQL
-    $sql = "INSERT INTO login VALUES ($contadorID, '$nome', '$email', '$senha')";
-    
-    echo $sql;
-
-    // Executar a consulta
+    $sql = "INSERT INTO login (log_user, log_email, log_senha) VALUES ('$nome', '$email', '$senha')";
     mysqli_query($conn, $sql);
 
-    echo $sql;
-
-    $contadorID = $contadorID + 1;
-    
+    header('Location: ../index.html');
 
 ?>
