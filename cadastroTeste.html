@@ -599,7 +599,7 @@
                     </div>
                   </div>
 
-                  <script>
+                   <script>
                    function aplicarMascaraCep(event) {
                         var cep = event.target.value;
                         cep = cep.replace(/\D/g, ""); // Remove caracteres não numéricos
@@ -611,20 +611,28 @@
                         var cep = document.getElementById('cep').value;
                         var url = 'https://viacep.com.br/ws/' + cep + '/json/';
             
+                        let inputRua = document.getElementById('rua');
+                        let inputEstado = document.getElementById('estado');
+                        let inputBairro = document.getElementById('bairro');
+                        let inputCidade = document.getElementById('cidade');
+                        let inputNumero = document.getElementById('numero');
+
                         fetch(url)
                             .then(response => response.json())
                             .then(data => {
-                                document.getElementById('rua').value = data.logradouro;
-                                document.getElementById('estado').value = data.uf;
-                                document.getElementById('bairro').value = data.bairro;
-                                document.getElementById('cidade').value = data.localidade;
-                                document.getElementById('numero').value = '';
-                                // Preencher outros campos
+                                inputRua.value = data.logradouro;
+                                inputEstado.value = data.uf;
+                                inputBairro.value = data.bairro;
+                                inputCidade.value = data.localidade;
+                                inputNumero.value = '';
+
+                                console.log("Buscou informações CEP " + data);
+                                
                             })
                             .catch(error => console.error('Erro na API:', error));
                     }
                 </script>
-                  
+                   
 
                  
                   <!--teste cep completo fim-->

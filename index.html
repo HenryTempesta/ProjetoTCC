@@ -119,10 +119,7 @@ button:hover {
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Dom Lemos</div>
+                <img src="img/logoDomLemos (2).png" alt="Dom Lemos" class="sidebar-brand-icon" style="height: 250px; margin-top: 15px;">
             </a>
 
             <!-- Divider -->
@@ -131,7 +128,7 @@ button:hover {
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-tachometer-alt" style="margin-top: 20px;"></i>
                     <span>Início</span></a>
             </li>
 
@@ -150,7 +147,6 @@ button:hover {
                         <h6 class="collapse-header">Páginas de Logins:</h6>
                         <a class="collapse-item" href="login.html">Login</a>
                         <a class="collapse-item" href="register.html">Cadastrar</a>
-                        <a class="collapse-item" href="forgot-password.html">Esqueci a senha</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Páginas de cadastro:</h6>
                         <a class="collapse-item" href="cadastroServicos.html">Cadastro de Serviços  </a>
@@ -209,7 +205,7 @@ button:hover {
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    Topbar Search -->
+                    <!-- Topbar Search --> 
                     <form
                     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
                     onsubmit="event.preventDefault(); searchFunction();"
@@ -224,7 +220,7 @@ button:hover {
                             name="searchInput"
                         />
                         <div class="input-group-append">
-                            <button class="btn btn-primary btn-sm" style="margin-top: 10px;">
+                            <button class="btn btn-primary btn-sm" style="width: 50px; margin-top: 10px;" >
                                 <i class="fas fa-search fa-sm"></i>
                             </button>
                         </div>
@@ -330,36 +326,39 @@ button:hover {
                             
                                 <span class="badge badge-danger badge-counter">7</span>
                             </a>
-                            <li class="nav-item dropdown no-arrow mx-1">
-                                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-question-circle medium fa-1,5x"></i>
+                            
                                 </a>
 
-                                
-                           
-
                         <!-- Nav Item - User Information -->
+                        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                               <span class="mr-2 d-none d-lg-inline text-gray-600 small">Guilbert Lemos</span>
                               <img class="img-profile rounded-circle" src="img/undraw_profile.svg" alt="Profile Image">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                              <a class="dropdown-item" href="#">Updates (42)</a>
-                              <a class="dropdown-item" href="#">Messages (42)</a>
-                              <a class="dropdown-item" href="#">Tasks (42)</a>
-                              <a class="dropdown-item" href="#">Comments (42)</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Settings & Profile</a>
-                              <a class="dropdown-item" href="#">Payments (42)</a>
-                              <a class="dropdown-item" href="#">Projects (42)</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Lock Account</a>
-                              <a class="dropdown-item" href="#">Logout</a>
-                            </div>
+                                <a class="dropdown-item" href="#">
+                                  <i class="fas fa-cog text-gray-600" style="margin-right: 5px;"></i>
+                                  Configurações
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                  <i class="fas fa-user text-gray-600" style="margin-right: 5px;"></i>
+                                  Perfil
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                  <i class="fas fa-question text-gray-600" style="margin-right: 5px;"></i>
+                                  Dúvidas
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                  <i class="fas fa-sign-out-alt text-gray-600" style="margin-right: 5px;"></i>
+                                  Logout
+                                </a>
+                              </div>
                           </li>
 
+                          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+                          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

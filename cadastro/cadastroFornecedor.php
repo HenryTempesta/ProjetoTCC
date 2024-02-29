@@ -14,9 +14,13 @@
     $estado = $_REQUEST['forn_estado'];
     $descricao = $_REQUEST['forn_descricao'];
 
-    $sql = "INSERT INTO fornecedor (forn_nome, forn_sobrenome, forn_email, forn_celular, forn_cep, forn_rua , forn_endereco_numero,forn_bairro, forn_cidade, forn_estado, forn_descricao) VALUES ('$nome', '$sobrenome', '$email', '$celular', '$cep', '$rua', '$endereco_numero', '$bairro', '$cidade', '$estado','$descricao')";
+    // echo $nome, $sobrenome, $email, $celular, $cep, $rua, $endereco_numero, $bairro, $cidade, $estado, $descricao;
+
+    $sql = "INSERT INTO fornecedor (forn_nome, forn_sobrenome, forn_email, forn_celular, forn_cep, forn_rua , forn_endereco_numero, forn_bairro, forn_cidade, forn_estado, forn_descricao) VALUES ('$nome', '$sobrenome', '$email', '$celular', '$cep', '$rua', '$endereco_numero', '$bairro', '$cidade', '$estado','$descricao')";
 
     mysqli_query($conn, $sql);
+
+    echo $sql;
 
     // header('Location: ../cadastroTeste.html');
 

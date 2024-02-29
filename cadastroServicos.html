@@ -502,245 +502,56 @@
                 <fieldset>
                 
                 <!-- Form Name -->
-                <legend>Cadastro de fornecedor</legend>
+                <legend>Cadastro de serviços</legend>
                 
                 <!-- Text input-->
                 
                 <div class="form-group">
-                  <label class="col-md-12 control-label">Primeiro nome</label>  
+                  <label class="col-md-12 control-label">Nome do serviço</label>  
                   <div class="col-md-12 inputGroupContainer">
                   <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input  name="first_name" placeholder="Primeiro Nome" class="form-control"  type="text">
+                  <input placeholder="Nome do serviço" class="form-control"  type="text" name="serv_nome">
                     </div>
                   </div>
                 </div>
                 
                 <!-- Text input-->
+                
                 
                 <div class="form-group">
-                  <label class="col-md-12 control-label" >Segundo Nome</label> 
-                    <div class="col-md-12 inputGroupContainer">
-                    <div class="input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input name="last_name" placeholder="Segundo nome" class="form-control"  type="text">
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Text input-->
-                       <div class="form-group">
-                  <label class="col-md-12 control-label">E-Mail</label>  
-                    <div class="col-md-12 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                  <input name="email" placeholder="Endereço de e-mail" class="form-control"  type="email">
-                    </div>
-                  </div>
-                </div>
-                
-                
-                <!-- Text input-->
-                       
-                <div class="form-group">
-                    <label class="col-md-12 control-label">Celular</label>  
+                    <label class="col-md-12 control-label" >Preço do serviço</label> 
                     <div class="col-md-12 inputGroupContainer">
                       <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input name="Celular" placeholder="(845)555-1212" class="form-control" type="text" id="telefone" maxlength="15">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="serv_preco" placeholder="R$ 00,00" class="form-control"  type="text" id="preco" oninput="this.value = formatarValorReais(this.value.replace(/\D/g, ''))">
                       </div>
                     </div>
                   </div>
-                
+                  
                   <script>
-                    // Função para formatar o telefone
-                    function formatarTelefone() {
-                      let inputTelefone = document.getElementById('telefone');
-                      let telefone = inputTelefone.value.replace(/\D/g, ''); // Remove caracteres não numéricos
-                
-                      if (telefone.length >= 2 && telefone.length <= 11) {
-                        // Formato para telefone com DDD
-                        inputTelefone.value = `(${telefone.substring(0, 2)}) ${telefone.substring(2, 7)}-${telefone.substring(7, 11)}`;
-                      } else if (telefone.length > 2 && telefone.length <= 10) {
-                        // Formato para telefone sem DDD
-                        inputTelefone.value = `${telefone.substring(0, 2)} ${telefone.substring(2, 7)}-${telefone.substring(7, 11)}`;
-                      } else {
-                        // Se o número não se encaixa em nenhum formato conhecido, mantenha como está
-                        inputTelefone.value = telefone;
-                      }
-                    }
-                
-                    // Adiciona o evento de digitação para formatar o telefone em tempo real
-                    document.getElementById('telefone').addEventListener('input', formatarTelefone);
-                
-                    // Formata o telefone assim que a página é carregada
-                    window.addEventListener('load', formatarTelefone);
+                  function formatarValorReais(value) {
+                    
+                    const numericValue = value.replace(/\D/g, '');
+                  
+                    const formattedValue = new Intl.NumberFormat('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL'
+                    }).format(numericValue / 100);
+                  
+                    return formattedValue.replace(/\.00$/, '');
+                  }
                   </script>
-                
-                <!-- Text input-->
 
-                <!--teste cep completo-->
+                
+                
               
-                
-
-                <script>
-                    function mascaraCep(val) {
-                      return val.replace(/\D/g, "").replace(/(\d{5})(\d{3})/, "$1-$2");
-                    }
-                  </script>
-                  
-                  <div class="form-group">
-                    <label class="col-md-12 control-label">CEP</label>
-                    <div class="col-md-12 inputGroupContainer">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="zip" placeholder="Cep" class="form-control" type="text" id="cep"  onblur="buscarEndereco()" onkeypress="aplicarMascaraCep(event)" maxlength="9">
-                    </div>
-                    </div>
-                  </div>
-
-                  <script>
-                   function aplicarMascaraCep(event) {
-                        var cep = event.target.value;
-                        cep = cep.replace(/\D/g, ""); // Remove caracteres não numéricos
-                        cep = cep.replace(/^(\d{5})(\d)/, "$1-$2"); // Insere hífen entre o quinto e o sexto dígito
-                        event.target.value = cep;
-                    }
-                    
-                    function buscarEndereco() {
-                        var cep = document.getElementById('cep').value;
-                        var url = 'https://viacep.com.br/ws/' + cep + '/json/';
-            
-                        fetch(url)
-                            .then(response => response.json())
-                            .then(data => {
-                                document.getElementById('rua').value = data.logradouro;
-                                document.getElementById('estado').value = data.uf;
-                                document.getElementById('bairro').value = data.bairro;
-                                document.getElementById('cidade').value = data.localidade;
-                                document.getElementById('numero').value = '';
-                                // Preencher outros campos
-                            })
-                            .catch(error => console.error('Erro na API:', error));
-                    }
-                </script>
-                  
-
-                 
-                  <!--teste cep completo fim-->
-                        
-                    <div class="form-group">
-                    <label class="col-md-12 control-label">Rua</label>  
-                        <div class="col-md-12 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                    <input name="address" placeholder="Endereço" class="form-control" type="text" id="rua" readonly>
-                        </div>
-                    </div>
-                    </div>
-
-                    <div class="form-group">
-                    <label class="col-md-4 control-label">Número</label>  
-                        <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                    <input name="address" placeholder="Número" class="form-control" type="text" id="numero">
-                        </div>
-                    </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-12 control-label">Bairro</label>  
-                            <div class="col-md-12 inputGroupContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="address" placeholder="Endereço" class="form-control" type="text" id="bairro" readonly>
-                            </div>
-                        </div>
-                        </div>
-
-                    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-                    
-                    
-                    <!-- Text input-->
-                    
-                    <div class="form-group">
-                    <label class="col-md-12 control-label">Cidade</label>  
-                        <div class="col-md-12 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                    <input name="city" placeholder="Cidade" class="form-control"  type="text" id="cidade" readonly>
-                        </div>
-                    </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-12 control-label">Estado</label>  
-                            <div class="col-md-12 inputGroupContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="city" placeholder="Estado" class="form-control"  type="text" id="estado" readonly>
-                            </div>
-                        </div>
-                        </div>
-                    
-                    <!-- Select Basic -->
-                    
-                    <!-- <div class="form-group"> 
-                    <label class="col-md-12 control-label">Estado</label>
-                        <div class="col-md-12 selectContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="state" class="form-control selectpicker" >
- 
-                        <option value=" " >Selecione seu estado!</option>
-                        <option>São paulo</option>
-                        <option >Rio de Janeiro</option>
-                        <option >Rio grande do sul</option>
-                        </select>
-                    </div>
-                    </div>
-                    </div> -->
-                
-                <!-- Text input-->
-                
-                
-                <!-- Text input-->
-                <!-- <div class="form-group">
-                  <label class="col-md-12 control-label">Website or domain name</label>  
-                   <div class="col-md-12 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-                  <input name="website" placeholder="Website or domain name" class="form-control" type="text">
-                    </div>
-                  </div>
-                </div>
-                
-                 
-                 <div class="form-group">
-                                        <label class="col-md-4 control-label">Do you have hosting?</label>
-                                        <div class="col-md-4">
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="hosting" value="yes" /> Yes
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="hosting" value="no" /> No
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                
-                <!-- Text area -->
-                  
                 <div class="form-group">
-                  <label class="col-md-12 control-label">Descrição dos produtos fornecidos</label>
+                  <label class="col-md-12 control-label">Descrição do serviço</label>
                     <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                            <textarea class="form-control" name="comment" placeholder="Descrição"></textarea>
+                            <textarea class="form-control" name="serv_descricao" placeholder="Breve descrição do serviço..."></textarea>
                   </div>
                   </div>
                 </div>
